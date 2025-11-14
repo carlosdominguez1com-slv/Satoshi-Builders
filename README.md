@@ -1,22 +1,21 @@
-1763146300634.jpg
  # BitcoinPay - TPV Lightning para emprendedores
 
 Proyecto que permite a negocios aceptar Bitcoin Lightning usando LNbits.
 
 ## Funcionalidades
--  Generación de invoices
--  Código QR dinámico
+-    Generación de invoices  
+-    Código QR dinámico  
 - Pagos con Zeus Lightning Wallet
--  Verificación del estado del pago
+-    Verificación del estado del pago  
 - División de pagos (Split Payments LNbits)
 
-##  Tecnologías
+##   Tecnologías 
 - Python (frasco)
 - HTML, CSS, JS.
 - LNbits API
-- La cartera de Zeus.
+-   La cartera de Zeus. 
 
-##  Cómo ejecutar
+##   Cómo ejecutar 
 
 ### Backend
 cd backend  

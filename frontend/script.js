@@ -2,7 +2,7 @@ document.getElementById("btn").addEventListener("click", async () => {
     const amount = document.getElementById("amount").value;
 
     try {
-        const res = await fetch("http://127.0.0.1:5000/api/invoice", {
+        const res = await fetch("http://chirilicas.com:5000/api/invoice", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ amount: parseInt(amount) })
@@ -24,5 +24,6 @@ document.getElementById("btn").addEventListener("click", async () => {
         alert("Error: No se pudo conectar con el backend");
     }
 });
+
 
 

@@ -3,6 +3,7 @@ import qrcode
 import base64
 import io
 
+
 def crear_invoice(amount, memo):
     # Crear invoice en LNbits
     respuesta = crear_invoice_lnbits(amount, memo)

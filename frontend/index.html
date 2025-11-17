@@ -1,56 +1,120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>BitcoinPay - TPV Lightning</title>
+  <meta charset="UTF-8">
+  <title>Aceptamos Bitcoin</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="bitcoinpay.ico">
 
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: radial-gradient(circle at top, #0d1b3d, #000000);
+      font-family: 'Inter', sans-serif;
+      color: #e0e8ff;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: auto;
+      background: rgba(13, 31, 68, 0.35);
+      border: 1px solid #1e4fc7;
+      border-radius: 18px;
+      padding: 55px 35px;
+      box-shadow: 0 0 18px rgba(0, 110, 255, 0.4);
+      backdrop-filter: blur(12px);
+    }
+
+    h1 {
+      font-family: "Orbitron", sans-serif;
+      font-size: 34px;
+      margin-bottom: 10px;
+      color: #4da6ff;
+      text-shadow: 0 0 10px #1a73e8;
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      font-size: 42px;
+      font-weight: bold;
+      color: #ffa93a;
+      padding: 20px 10px;
+      margin: 15px 0 25px 0;
+      text-shadow: 0 0 10px #ff9900;
+      font-family: "Orbitron";
+    }
+
+    .bitcoin-icon {
+      width: 200px;
+      margin: 10px auto 20px auto;
+      justify-content: center;
+      filter: drop-shadow(0 0 12px #ff9900);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .btn-btc {
+      margin-top: 25px;
+      display: inline-block;
+      padding: 18px 40px;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ff9800, #ff6700);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 18px rgba(255, 153, 0, 0.7);
+      text-decoration: none;
+      animation: pulse 1.4s infinite;
+      transition: 0.3s ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 12px rgba(255,153,0,0.7); }
+      50%  { box-shadow: 0 0 25px rgba(255,153,0,1); }
+      100% { box-shadow: 0 0 12px rgba(255,153,0,0.7); }
+    }
+
+    .btn-btc:hover {
+      transform: scale(1.07);
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="main-wrapper">
+  <!-- HEADER -->
+  <div include-html="header.html"></div>
 
-  <!-- Conversor -->
-  <div class="card converter-box">
-    <h2 class="subtitle">Conversor USD → BTC</h2>
-    <input id="usd" type="number" step="0.01" placeholder="Ingrese USD" />
+  <!-- CONTENIDO -->
+  <div class="container">
 
-    <button id="convert" class="btn-primary" type="button">Convertir a BTC</button>
+    <h1>⚡ Este negocio acepta la mejor moneda del mundo</h1>
+
+    <div class="subtitle">BITCOIN</div>
+
+    <!-- CAMBIA ESTE NOMBRE POR TU LOGO REAL -->
+    <img src="logo.png" class="bitcoin-icon" alt="Bitcoin Logo">
     <br>
-    <br>
-    <br>
-    <br>
-    <div id="btc-result" class="conversion-result"></div>
-    <div id="conv-error" class="error-msg"></div>
+
+    <a href="bitcoinpay.html" class="btn-btc">
+      ⚡ Pagar con Bitcoin
+    </a>
+
   </div>
 
-  <!-- TPV Lightning -->
-  <div class="card bitcoinpay-box">
-    <h1 class="title">⚡ BitcoinPay</h1>
-    <h2 class="subtitle">TPV Lightning</h2>
+  <!-- FOOTER -->
+  <div include-html="footer.html"></div>
 
-    <label>Monto (sats)</label>
-    <input id="amount" type="number" value="100">
-
-    <button id="btn" class="btn-primary">⚡ Generar Invoice</button>
-
-    <h3>Escanea el QR con Zeus</h3>
-
-    <div id="qr-wrapper">
-      <div id="qr"></div>
-    </div>
-
-    <pre id="payreq"></pre>
-  </div>
-
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>

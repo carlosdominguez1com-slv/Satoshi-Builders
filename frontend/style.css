@@ -1,24 +1,79 @@
-/* ------------------ ESTILOS BASE ------------------ */
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: rgba(10, 20, 40, 0.7);
+  border-bottom: 1px solid #1e4fc7;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  width: 60px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 113, 255, 0.7);
+}
+
+/* HAMBURGER */
+.hamburger {
+  font-size: 40px;
+  cursor: pointer;
+  color: #4da6ff;
+}
+
+.menu {
+  position: absolute;
+  top: 65px;
+  right: 15px;
+  background: rgba(8, 17, 35, 0.95);
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid #1e4fc7;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu a {
+  color: #e0e8ff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.menu.open {
+  display: flex;
+}
+
+header {
+    position: fixed;  
+    top: 0;
+    left: 0;
+    width: 97%;
+    z-index: 10;      
+}
+
 
 body {
   background: radial-gradient(circle at top, #0d1b3d, #000000);
   font-family: 'Inter', sans-serif;
   color: #e0e8ff;
   text-align: center;
-  padding: 40px;
+  padding: 100px;
   margin: 0;
 }
 
-/* Contenedor principal */
+
 .main-wrapper {
   display: flex;
   justify-content: center;
-  align-items: start;
-  gap: 90px;
+  align-items: flex-start;
+  gap: 90px;        /* ESPACIO ENTRE CONVERTIDOR Y FACTURACIÓN */
+  margin-top: 30px; /* SEPARACIÓN DEL HEADER */
   flex-wrap: wrap;
 }
 
-/* ------------------ TARJETAS / CONTENEDORES ------------------ */
+
 
 .card {
   background: rgba(0, 20, 60, 0.55);
@@ -31,13 +86,11 @@ body {
   animation: fadeIn 0.7s ease-in-out;
 }
 
-/* Animación suave de entrada */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ------------------ TITULOS ------------------ */
 
 .title {
   font-family: 'Orbitron', sans-serif;
@@ -53,7 +106,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* ------------------ INPUTS Y LABELS ------------------ */
 
 label {
   font-size: 16px;
@@ -77,7 +129,7 @@ input:focus {
   box-shadow: 0 0 10px #4da6ff;
 }
 
-/* ------------------ BOTÓN PRINCIPAL ------------------ */
+
 
 .btn-primary {
   width: 100%;
@@ -98,7 +150,7 @@ input:focus {
   box-shadow: 0 0 22px rgba(255, 153, 0, 1);
 }
 
-/* ------------------ QR ------------------ */
+
 
 #qr-wrapper {
   display: flex;
@@ -114,7 +166,7 @@ input:focus {
   box-shadow: 0 0 12px rgba(0, 113, 255, 0.7);
 }
 
-/* ------------------ PRE (PAYREQ) ------------------ */
+
 
 pre {
   background: rgba(0, 10, 30, 0.6);
@@ -127,10 +179,18 @@ pre {
   border: 1px solid #1e4fc7;
 }
 
-/* ------------------ MENSAJES ------------------ */
 
 .error-msg {
   margin-top: 8px;
   color: #ffb3a7;
   min-height: 20px;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+  color: #b3c9ff;
+  opacity: 0.8;
 }

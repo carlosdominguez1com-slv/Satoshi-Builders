@@ -24,34 +24,49 @@ document.getElementById("btn").addEventListener("click", async () => {
     }
 });
 
-document.getElementById("convert").addEventListener("click", async () => {
-    const usd = document.getElementById("usd").value;
-    const result = document.getElementById("btc-result");
+document.addEventListener("DOMContentLoaded", () => {
+    const convertBtn = document.getElementById("convert");
+    const usdInput = document.getElementById("usd");
+    const btcResult = document.getElementById("btc-result");
+    const satsResult = document.getElementById("sats-result");
     const errorBox = document.getElementById("conv-error");
 
-    result.textContent = "";
-    errorBox.textContent = "";
+    convertBtn.addEventListener("click", async function () {
 
-    if (!usd || usd <= 0) {
-        errorBox.textContent = "Ingrese una cantidad válida";
-        return;
-    }
+        const usd = parseFloat(usdInput.value);
 
-    try {
-        // API QUE SÍ FUNCIONA
-        const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
+        btcResult.textContent = "";
+        satsResult.textContent = "";
+        errorBox.textContent = "";
 
-        if (!res.ok) throw new Error("Falló la API");
+        if (isNaN(usd) || usd <= 0) {
+            errorBox.textContent = "Ingrese un valor válido en USD.";
+            return;
+        }
 
-        const data = await res.json();
-        const price = data.bitcoin.usd; // precio en USD
+        try {
+            // Precio de BTC desde Coingecko
+            const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
 
-        const btc = usd / price;
+            const data = await res.json();
+            
+            // ESTA ES LA PARTE CORRECTA
+            const btcPrice = data.bitcoin.usd;
 
-        result.textContent = `${usd} USD = ${btc.toFixed(8)} BTC`;
-    } 
-    catch (err) {
-        errorBox.textContent = "No se pudo obtener el precio. Verifique su conexión.";
-        console.error(err);
-    }
+            // Conversión USD → BTC
+            const btc = usd / btcPrice;
+
+            // Conversión BTC → SATS
+            const sats = btc * 100000000;
+
+            btcResult.textContent = `BTC: ${btc.toFixed(8)} BTC`;
+            satsResult.textContent = `SATS: ${sats.toFixed(0)} sats`;
+
+        } catch (err) {
+            errorBox.textContent = "Error al obtener el precio de Bitcoin.";
+        }
+    });
 });
+
+
+

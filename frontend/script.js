@@ -1,3 +1,4 @@
+// Generar Invoice
 document.getElementById("btn").addEventListener("click", async () => {
     const amount = document.getElementById("amount").value;
 
@@ -8,9 +9,7 @@ document.getElementById("btn").addEventListener("click", async () => {
             body: JSON.stringify({ amount: parseInt(amount) })
         });
 
-        if (!res.ok) {
-            throw new Error("Error al conectar con el backend");
-        }
+        if (!res.ok) throw new Error("Error al conectar con el backend");
 
         const data = await res.json();
 
@@ -25,4 +24,34 @@ document.getElementById("btn").addEventListener("click", async () => {
     }
 });
 
+document.getElementById("convert").addEventListener("click", async () => {
+    const usd = document.getElementById("usd").value;
+    const result = document.getElementById("btc-result");
+    const errorBox = document.getElementById("conv-error");
 
+    result.textContent = "";
+    errorBox.textContent = "";
+
+    if (!usd || usd <= 0) {
+        errorBox.textContent = "Ingrese una cantidad válida";
+        return;
+    }
+
+    try {
+        // API QUE SÍ FUNCIONA
+        const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
+
+        if (!res.ok) throw new Error("Falló la API");
+
+        const data = await res.json();
+        const price = data.bitcoin.usd; // precio en USD
+
+        const btc = usd / price;
+
+        result.textContent = `${usd} USD = ${btc.toFixed(8)} BTC`;
+    } 
+    catch (err) {
+        errorBox.textContent = "No se pudo obtener el precio. Verifique su conexión.";
+        console.error(err);
+    }
+});

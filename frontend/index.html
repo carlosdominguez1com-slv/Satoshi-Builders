@@ -1,24 +1,54 @@
 <!doctype html>
-<html>
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <title>BitcoinPay - TPV Lightning</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="bitcoinpay.ico">
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-  <h1>BitcoinPay</h1>
+<div class="main-wrapper">
 
-  <label>Monto (sats)</label>
-  <input id="amount" type="number" value="100">
+  <!-- Conversor -->
+  <div class="card converter-box">
+    <h2 class="subtitle">Conversor USD → BTC</h2>
+    <input id="usd" type="number" step="0.01" placeholder="Ingrese USD" />
 
-  <button id="btn">Generar Invoice</button>
+    <button id="convert" class="btn-primary" type="button">Convertir a BTC</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="btc-result" class="conversion-result"></div>
+    <div id="conv-error" class="error-msg"></div>
+  </div>
 
-  <h3>Escanea el QR con Zeus</h3>
-  <div id="qr"></div>
+  <!-- TPV Lightning -->
+  <div class="card bitcoinpay-box">
+    <h1 class="title">⚡ BitcoinPay</h1>
+    <h2 class="subtitle">TPV Lightning</h2>
 
-  <pre id="payreq"></pre>
+    <label>Monto (sats)</label>
+    <input id="amount" type="number" value="100">
+
+    <button id="btn" class="btn-primary">⚡ Generar Invoice</button>
+
+    <h3>Escanea el QR con Zeus</h3>
+
+    <div id="qr-wrapper">
+      <div id="qr"></div>
+    </div>
+
+    <pre id="payreq"></pre>
+  </div>
+
 </div>
 
 <script src="script.js"></script>

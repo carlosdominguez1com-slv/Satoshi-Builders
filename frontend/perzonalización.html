@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personalización del Sistema — BitcoinPay</title>
+
+  <link rel="icon" type="image/x-icon" href="bitcoinpay.ico">
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: radial-gradient(circle at top, #0d1b3d, #000000);
+      font-family: 'Inter', sans-serif;
+      color: #e0e8ff;
+      padding: 40px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: rgba(13, 31, 68, 0.3);
+      border: 1px solid #1e4fc7;
+      border-radius: 18px;
+      padding: 45px;
+      box-shadow: 0 0 15px rgba(0, 110, 255, 0.4);
+      backdrop-filter: blur(10px);
+    }
+
+    h1, h2, h3 {
+      font-family: "Orbitron", sans-serif;
+      color: #4da6ff;
+      text-shadow: 0 0 10px #1a73e8;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 35px;
+      font-size: 35px;
+    }
+
+    h2 { margin-top: 30px; }
+
+    p, li {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    pre {
+      background: #0a1226;
+      border: 1px solid #1e4fc7;
+      padding: 15px;
+      border-radius: 12px;
+      color: #9ecbff;
+      overflow-x: auto;
+      box-shadow: 0 0 12px rgba(0, 110, 255, 0.3);
+    }
+
+    a.btn {
+      display: inline-block;
+      margin: 10px 10px 30px 0;
+      padding: 12px 28px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ff9800, #ff6700);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 153, 0, 0.7);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    a.btn:hover {
+      transform: scale(1.05);
+    }
+
+    .warning {
+      background: rgba(255, 196, 0, 0.1);
+      padding: 15px;
+      border-left: 4px solid #ffae00;
+      border-radius: 10px;
+      margin-top: 15px;
+      color: #ffe6a4;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <a href="https://github.com/carlosdominguez1com-slv/Satoshi-Builders" target="_blank" class="btn">
+    📁 Ir al Repositorio
+  </a>
+
+  <a href="bitcoinpay.html" class="btn">
+    ⟵ Regresar
+  </a>
+
+  <h1>Personalización del Sistema</h1>
+
+  <p>
+    Aquí aprenderás cómo adaptar BitcoinPay a tu negocio. No necesitas ser técnico; solo modificar 
+    algunos datos para que tu tienda, tu billetera y tu nodo trabajen juntos.
+  </p>
+
+  <h2>1. Archivos que debes revisar</h2>
+  <p>En la carpeta del proyecto encontrarás uno de estos archivos:</p>
+
+  <ul>
+    <li><code>.env</code> o <code>.env.example</code></li>
+    <li><code>config.json</code></li>
+  </ul>
+
+  <h2>2. Datos que cada negocio debe personalizar</h2>
+
+  <h3>Tu nodo Bitcoin</h3>
+  <p>El sistema se conecta a tu nodo para verificar pagos.</p>
+
+  <pre><code>NODE_RPC_URL=http://127.0.0.1:8332
+NODE_RPC_USER=tu_usuario
+NODE_RPC_PASSWORD=tu_contraseña</code></pre>
+
+  <p>Si aún no tienes nodo, puedes usar servicios externos, pero lo ideal es tener uno propio.</p>
+
+  <h3>Tu billetera</h3>
+  <p>Coloca aquí la dirección donde quieres recibir los pagos:</p>
+
+  <pre><code>WALLET_ADDRESS=tu_direccion_btc</code></pre>
+
+  <div class="warning">
+    No ingreses claves privadas. Una clave privada es la “llave secreta” de tu billetera.
+  </div>
+
+  <h3>Identidad de tu negocio</h3>
+
+  <pre><code>WALLET_LABEL=Nombre de tu tienda
+APP_PORT=3000</code></pre>
+
+  <h2>3. Pasos para personalizar</h2>
+
+  <ol>
+    <li>Abre <code>.env</code> o <code>config.json</code>.</li>
+    <li>Modifica los valores con tu información.</li>
+    <li>Guarda los cambios.</li>
+    <li>Inicia el sistema.</li>
+  </ol>
+
+  <h2>4. Recomendaciones</h2>
+
+  <ul>
+    <li>Haz pruebas en testnet antes de usarlo en real.</li>
+    <li>No compartas contraseñas.</li>
+    <li>Mantén tu dirección de pago en un entorno seguro.</li>
+  </ul>
+
+  <h2>5. Ejemplo final</h2>
+
+  <pre><code>NODE_RPC_URL=http://127.0.0.1:8332
+NODE_RPC_USER=miusuario
+NODE_RPC_PASSWORD=mipassword
+WALLET_ADDRESS=tb1qejemplo...
+WALLET_LABEL=Mi Negocio</code></pre>
+
+  <p>
+    Con esto ya puedes adaptar el sistema para que tu negocio reciba pagos Lightning 
+    de manera segura y personalizada.
+  </p>
+
+</div>
+<center>
+    <a href="bitcoinpay.html" class="btn">Volver al inicio</a>
+  </center>
+</body>
+</html>

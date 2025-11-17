@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cómo Funciona el Sistema — BitcoinPay</title>
+
+  <link rel="icon" type="image/x-icon" href="bitcoinpay.ico">
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: radial-gradient(circle at top, #0d1b3d, #000000);
+      font-family: 'Inter', sans-serif;
+      color: #e0e8ff;
+      padding: 40px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: rgba(13, 31, 68, 0.3);
+      border: 1px solid #1e4fc7;
+      border-radius: 18px;
+      padding: 45px;
+      box-shadow: 0 0 15px rgba(0, 110, 255, 0.4);
+      backdrop-filter: blur(10px);
+    }
+
+    h1, h2 {
+      font-family: "Orbitron", sans-serif;
+      color: #4da6ff;
+      text-shadow: 0 0 10px #1a73e8;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 35px;
+      font-size: 38px;
+    }
+
+    h2 {
+      margin-top: 35px;
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    ul {
+      margin-left: 20px;
+      font-size: 18px;
+    }
+
+    .highlight {
+      color: #ffa73c;
+      font-weight: bold;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 25px auto;
+      width: 150px;
+      filter: drop-shadow(0 0 10px #ff9900);
+    }
+
+    a.btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 15px 35px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ff9800, #ff6700);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 153, 0, 0.7);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    a.btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <img src="logo.png" class="logo" alt="Logo del sistema">
+
+  <h1>¿Cómo Funciona el Sistema BitcoinPay?</h1>
+
+  <h2>⚙️ 1. ¿Qué hace el sistema?</h2>
+  <p>
+    BitcoinPay es un <span class="highlight">TPV Lightning</span> diseñado para que cualquier negocio pueda aceptar pagos en Bitcoin de forma rápida, segura y visualmente atractiva.
+    El sistema genera facturas Lightning, recibe el pago y notifica automáticamente cuando el cliente ha completado la transacción.
+  </p>
+
+  <h2>⚡ 2. Flujo básico de funcionamiento</h2>
+  <ul>
+    <li>El comercio ingresa el monto a cobrar.</li>
+    <li>El sistema genera una factura Lightning (QR o link).</li>
+    <li>El cliente paga desde su billetera Bitcoin Lightning.</li>
+    <li>El nodo del comercio confirma el pago.</li>
+    <li>La pantalla del sistema cambia automáticamente a “Pago recibido”.</li>
+  </ul>
+
+  <h2>🔗 3. ¿Cómo se conecta con tu nodo?</h2>
+  <p>
+    BitcoinPay se comunica con tu nodo a través de una API sencilla.  
+    Si usas LND, Core Lightning u otro nodo compatible, el sistema utiliza tus credenciales configuradas en el archivo <span class="highlight">.env</span>.
+  </p>
+
+  <p>Gracias a esto, el control del dinero siempre permanece en tus manos, no en servidores de terceros.</p>
+
+  <h2>🎨 4. Interfaz diseñada para tiendas</h2>
+  <p>
+    Todo está pensado para que la experiencia del cliente sea clara: botones grandes, colores llamativos, un QR bien visible y un diseño moderno.
+  </p>
+
+  <h2>🛡️ 5. Seguridad integrada</h2>
+  <ul>
+    <li>Las claves privadas nunca se guardan en el sistema.</li>
+    <li>Solo se usan tokens o macaroons del nodo.</li>
+    <li>No hay servidores externos procesando pagos.</li>
+  </ul>
+
+  <h2>🚀 6. ¿Qué lo hace especial?</h2>
+  <ul>
+    <li>Totalmente open‑source.</li>
+    <li>Fácil de personalizar.</li>
+    <li>No depende de terceros.</li>
+    <li>Ideal para negocios salvadoreños y emprendedores que quieren modernizarse.</li>
+  </ul>
+
+  <center>
+    <a href="bitcoinpay.html" class="btn">Volver al inicio</a>
+  </center>
+
+</div>
+</body>
+</html>
